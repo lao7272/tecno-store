@@ -1,4 +1,11 @@
 .App {
   text-align: center;
 }
-
+.cartWidget{
+  margin: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+main h1{
+  margin: 10px;
+}

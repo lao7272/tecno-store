@@ -1,3 +1,4 @@
+import { CartWidget} from "../CartWidget/CartWidget"
 export function Navbar (){
     return(
         <>
@@ -17,7 +18,9 @@ export function Navbar (){
                         </li>
                     </ul>
                     </div>
+                    <CartWidget/>
                 </div>
+
             </nav>
         </>
     )
