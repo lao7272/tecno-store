@@ -2,19 +2,19 @@ import { CartWidget} from "../CartWidget/CartWidget"
 export function Navbar (){
     return(
         <>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Tecno Store</a>
-                    <div class="collapse navbar-collapse" id="navbarColor01">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                        <a class="nav-link active" href="#">Inicio</a>
+            <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+                <div className="container-fluid">
+                    <a className="navbar-brand" href="#">Tecno Store</a>
+                    <div className="collapse navbar-collapse" id="navbarColor01">
+                    <ul className="navbar-nav me-auto">
+                        <li className="nav-item">
+                        <a className="nav-link active" href="#">Inicio</a>
                         </li>
-                        <li class="nav-item">
-                        <a class="nav-link active" href="#">Productos</a>
+                        <li className="nav-item">
+                        <a className="nav-link active" href="#">Productos</a>
                         </li>
-                        <li class="nav-item">
-                        <a class="nav-link active" href="#">Contacto</a>
+                        <li className="nav-item">
+                        <a className="nav-link active" href="#">Contacto</a>
                         </li>
                     </ul>
                     </div>
