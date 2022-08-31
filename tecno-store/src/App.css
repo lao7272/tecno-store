@@ -9,3 +9,14 @@
 main h1{
   margin: 10px;
 }
+.itemList{
+  width: 100%;
+  display: flex;
+}
+.cardItem{
+  max-width: 20rem;
+  border-radius: 4px;
+}
+.cardItem img{
+  width: 70%;
+}
