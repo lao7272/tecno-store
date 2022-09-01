@@ -14,7 +14,7 @@ export const ItemCount = ({stock, initial }) => {
         
     }
     const removeFromCart = () => {
-        if(count != 0){
+        if(count !== 0){
 
             setCount(count - 1);
             setReserve(reseve + 1)

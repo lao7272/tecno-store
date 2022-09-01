@@ -10,7 +10,9 @@ export const ItemList = ({items}) => {
             
             {items.map(product => {
                 return(
-                <Item key={product.id} item={product}/>
+                    <>
+                        <Item key={product.id} item={product}/>
+                    </>
                 )
             })}
         </div>

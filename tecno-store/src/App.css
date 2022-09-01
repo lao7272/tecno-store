@@ -12,11 +12,22 @@ main h1{
 .itemList{
   width: 100%;
   display: flex;
+  justify-content: space-around;  
+  align-items: center;
+  
 }
 .cardItem{
   max-width: 20rem;
   border-radius: 4px;
+  padding: rem;
 }
 .cardItem img{
   width: 70%;
+}
+.itemDetailContainer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
