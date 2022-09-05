@@ -12,15 +12,16 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Navbar/>
-        {/* <Routes>
-          <Route path='/' element={ItemListContainer}/>
-          <Route path='/contacto' element={ContactPage}/>
-          <Route path='*' element={ItemListContainer }/> */}
-          {/*<Route/> */}
-        {/* </Routes> */}
-        <ItemListContainer/>
-        <ItemDetailContainer></ItemDetailContainer>
-        
+        <Routes>
+          <Route path='/productos' element={<ItemListContainer/>}/>
+          {/* <Route path='/productos/computadoras' element={<ItemListContainer/>}/>
+          <Route path='/productos/celulares' element={<ItemListContainer/>}/> */}
+          <Route path='/productos/:tipoProducto' element={<ItemListContainer/>}/>
+          <Route path='/item/:productId' element={<ItemListContainer/>}/>
+          <Route path='/contacto' element={<ContactPage/>}/>
+          <Route path='*' element={<ItemListContainer/> }/>
+          <Route/>
+        </Routes>        
       </div>
     </BrowserRouter>
   );

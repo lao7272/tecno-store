@@ -19,7 +19,7 @@ main h1{
 .cardItem{
   max-width: 20rem;
   border-radius: 4px;
-  padding: rem;
+  padding-bottom: 1rem;
 }
 .cardItem img{
   width: 70%;
@@ -30,4 +30,11 @@ main h1{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.activeClass{
+  text-decoration: underline;
+}
+.inactiveClass{
+  text-decoration: none;
 }

@@ -23,7 +23,6 @@ export const ItemCount = ({stock, initial }) => {
         }
         
     }
-    console.log(count)
     return (
         <>
             <div>

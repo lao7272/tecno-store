@@ -1,5 +1,6 @@
 import React from "react";
 import { Item } from "../Item/Item";
+import { Link as LinkBoostrap } from "react-router-dom";
 
 
 export const ItemList = ({items}) => {
@@ -11,7 +12,9 @@ export const ItemList = ({items}) => {
             {items.map(product => {
                 return(
                     <>
-                        <Item key={product.id} item={product}/>
+                        <LinkBoostrap key={product.id} to={`/item/${product.id}`}>
+                            <Item item={product}/>
+                        </LinkBoostrap>
                     </>
                 )
             })}

@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { ItemCount } from "../ItemCount/ItemCount";
 import { ItemList } from "../ItemList/ItemList";
 import { arrProducts } from "../arrProducts/arrProducts";
+import { useParams } from "react-router-dom";
 export const ItemListContainer = ({title}) => {
+
+    const {tipoProducto, productId} = useParams();
 
     const [products, setProducts] = useState([]);
 
@@ -14,10 +17,27 @@ export const ItemListContainer = ({title}) => {
 
     useEffect(() => {
         productsPromise.then((res) => {
-            console.log(res)
-            setProducts(res)
+            if(!tipoProducto ){
+                setProducts(res);
+            } else {
+                const newList = res.filter(itm => itm.category === tipoProducto);
+    
+                setProducts(newList);
+            }
         });
-    }, []);
+    }, [tipoProducto]);
+
+    useEffect(() => {
+        productsPromise.then((res) => {
+            if(!productId ){
+                setProducts(res);
+            } else {
+                const newList = res.filter(itm => parseFloat(itm.id) === parseFloat(productId));
+    
+                setProducts(newList);
+            }
+        });
+    }, [productId]);
 
 
     return(
