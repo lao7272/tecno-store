@@ -14,10 +14,8 @@ function App() {
         <Navbar/>
         <Routes>
           <Route path='/productos' element={<ItemListContainer/>}/>
-          {/* <Route path='/productos/computadoras' element={<ItemListContainer/>}/>
-          <Route path='/productos/celulares' element={<ItemListContainer/>}/> */}
           <Route path='/productos/:tipoProducto' element={<ItemListContainer/>}/>
-          <Route path='/item/:productId' element={<ItemListContainer/>}/>
+          <Route path='/item/:productId' element={<ItemDetailContainer/>}/>
           <Route path='/contacto' element={<ContactPage/>}/>
           <Route path='*' element={<ItemListContainer/> }/>
           <Route/>
