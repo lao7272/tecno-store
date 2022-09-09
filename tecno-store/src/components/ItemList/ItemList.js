@@ -7,11 +7,12 @@ export const ItemList = ({items}) => {
     
     return ( 
         <>
-        <div>
+        <div className="itemListContainer">
             
             {items.map(product => {
                 return(
                     <>
+                        
                         <LinkBoostrap key={product.id} to={`/item/${product.id}`}>
                             <Item item={product}/>
                         </LinkBoostrap>

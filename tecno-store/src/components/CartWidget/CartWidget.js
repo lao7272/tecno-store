@@ -1,7 +1,10 @@
+import {Link as LinkBoostrap} from 'react-router-dom'
 export const CartWidget = () => {
     return(
-        <div>
-            <i className="fa-solid fa-cart-shopping fa-xl cartWidget" ></i>
-        </div>
+        <LinkBoostrap to="/cart">
+            <div>
+                <i className="fa-solid fa-cart-shopping fa-xl cartWidget" ></i>
+            </div>
+        </LinkBoostrap>
     )
 }

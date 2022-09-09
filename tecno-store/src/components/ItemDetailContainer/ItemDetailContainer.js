@@ -24,7 +24,6 @@ export const ItemDetailContainer = () => {
         }
         response();
     },[productId]);
-    console.log(item);
 
     return(
         <div className="itemDetailContainer">

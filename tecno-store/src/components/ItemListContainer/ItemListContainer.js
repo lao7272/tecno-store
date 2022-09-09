@@ -32,10 +32,7 @@ export const ItemListContainer = () => {
 
     return(
         <main>
-            
-            <div className="itemList">
-                <ItemList items={products}/>
-            </div>
+            <ItemList items={products}/>
         </main>
     )
 }

@@ -6,14 +6,20 @@
   color: #fff;
   cursor: pointer;
 }
+.activeClass{
+  text-decoration: underline;
+}
+.inactiveClass{
+  text-decoration: none;
+}
 main h1{
   margin: 10px;
 }
-.itemList{
+.itemListContainer{
   width: 100%;
   display: flex;
-  justify-content: space-around;  
-  align-items: center;
+  justify-content: center;  
+  flex-wrap: wrap;
   
 }
 .cardItem{
@@ -31,10 +37,15 @@ main h1{
   justify-content: center;
   align-items: center;
 }
-
-.activeClass{
-  text-decoration: underline;
+.deleteProduct{
+  width: 100%;
 }
-.inactiveClass{
-  text-decoration: none;
+.deleteProduct button{
+  margin: 0 auto;
+}
+.cartProducts{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }

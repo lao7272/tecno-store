@@ -27,8 +27,7 @@ export const ItemCount = ({initial, stock, onAdd }) => {
 
     const quantProd = () => {
         onAdd(count, reseve);
-        console.log(stock, initial);
-        console.log(reseve, count)
+        
     }
     return (
         <>
