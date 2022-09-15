@@ -6,14 +6,14 @@ import { useParams } from "react-router-dom";
 
 export const ItemDetailContainer = () => {
     const [item, setItem] = useState([]);
-
+    const [loading, setLoading] = useState(true);
     const {productId} = useParams();
     const getItem = () => {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 const itemId = arrProducts.filter(itm => itm.id == productId);
-
                 resolve(itemId[0]);
+                setLoading(false);
             }, 2000);
         });
     }
@@ -26,9 +26,14 @@ export const ItemDetailContainer = () => {
     },[productId]);
 
     return(
+        <>
+        {loading ? <h3>Cargando</h3>
+        :
         <div className="itemDetailContainer">
             <h4>Item Detail</h4>
             <ItemDetail item={item}/>
         </div>
+    }
+    </>
     )
 }

@@ -8,10 +8,12 @@ export const ItemListContainer = () => {
     const {tipoProducto} = useParams();
 
     const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const productsPromise = new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(arrProducts);
+            setLoading(false)
         }, 2000);
     }); 
 
@@ -32,7 +34,11 @@ export const ItemListContainer = () => {
 
     return(
         <main>
+            {
+            loading ? <h3>Cargando</h3> 
+            :
             <ItemList items={products}/>
+            }
         </main>
     )
 }

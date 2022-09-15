@@ -10,7 +10,7 @@ export const Item = ({item}) => {
                 </div>
 
                 <div className="card-body row">
-                <h5>Precio: {item.price}</h5>
+                <h5>Precio: ${item.price}</h5>
                 </div>
                 <div> 
                     <button  className="btn btn-info " type="button">Info</button>
