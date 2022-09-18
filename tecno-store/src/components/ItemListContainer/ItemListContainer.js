@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from "react";
-import { ItemCount } from "../ItemCount/ItemCount";
 import { ItemList } from "../ItemList/ItemList";
-import { arrProducts } from "../arrProducts/arrProducts";
 import { useParams } from "react-router-dom";
+import { collection, getDocs } from "firebase/firestore";
+import { dataBase } from "../../utils/firebase";
 export const ItemListContainer = () => {
 
     const {tipoProducto} = useParams();
 
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
-
-    const productsPromise = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(arrProducts);
-            setLoading(false)
-        }, 2000);
-    }); 
-
-    useEffect(() => {
-        productsPromise.then((res) => {
-            if(!tipoProducto ){
-                setProducts(res);
-            } else {
-                const newList = res.filter(itm => itm.category === tipoProducto);
     
+    useEffect(() => {
+        const getData = async() => {
+            const query = collection(dataBase, "items"); 
+            const response = await getDocs(query);
+            const docs = response.docs;
+            const data = docs.map(doc=> {return {...doc.data(), id:doc.id}})
+
+            if(!tipoProducto ){
+                setProducts(data);
+            } else {
+                const newList = data.filter(itm => itm.category === tipoProducto);
                 setProducts(newList);
             }
-        });
+            
+            setLoading(false);
+        }
+        getData();
     }, [tipoProducto]);
 
     

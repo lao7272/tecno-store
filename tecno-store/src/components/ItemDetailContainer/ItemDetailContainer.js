@@ -1,28 +1,27 @@
 import { useEffect, useState } from "react";
-import { arrProducts } from "../arrProducts/arrProducts"
 import { ItemDetail } from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
+import { dataBase } from "../../utils/firebase";
 
 
 export const ItemDetailContainer = () => {
     const [item, setItem] = useState([]);
     const [loading, setLoading] = useState(true);
     const {productId} = useParams();
-    const getItem = () => {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                const itemId = arrProducts.filter(itm => itm.id == productId);
-                resolve(itemId[0]);
-                setLoading(false);
-            }, 2000);
-        });
-    }
+    
     useEffect(() => {
-        const response = async () =>{
-            const res = await getItem();
-            setItem(res);
+        const getItem = async () => {
+            const query = doc(dataBase, "items", productId); 
+            const response = await getDoc(query);
+            const product = {
+                ...response.data(),
+                id: response.id
+            }
+            setItem(product);
+            setLoading(false);
         }
-        response();
+        getItem();
     },[productId]);
 
     return(

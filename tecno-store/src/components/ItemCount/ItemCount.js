@@ -1,8 +1,14 @@
-import React, { useState} from "react"
+import React, { useEffect, useState} from "react";
+import { useParams } from "react-router-dom";
+import {Link as LinkBoostrap} from 'react-router-dom';
+
 export const ItemCount = ({initial, stock, onAdd }) => {
 
     const[count, setCount] = useState(initial);
     const[reseve, setReserve] = useState(stock);
+    const [addProduct, setAddProduct] = useState(true);
+    const {productId} = useParams();
+
     const addToCart = () => {
         if (count < stock){
             setCount(count + 1);
@@ -24,13 +30,17 @@ export const ItemCount = ({initial, stock, onAdd }) => {
         }
         
     }
-
     const quantProd = () => {
         onAdd(count, reseve);
-        
+        setAddProduct(false);
     }
+    useEffect(()=>{
+        setAddProduct(true);
+    },[productId]);
     return (
         <>
+            {addProduct ?
+            <>
             <div>
                 <p>Stock: {reseve}</p>
                 <div>
@@ -40,8 +50,16 @@ export const ItemCount = ({initial, stock, onAdd }) => {
                 </div>
             </div>
             <div>
+                
                 <button onClick={quantProd} className="btn btn-success m-1">Agregar al carrito</button>
+                
             </div>
+            </>
+            :
+            <LinkBoostrap to="/cart">
+                <button className="btn btn-success m-1">Terminar Compra</button>
+            </LinkBoostrap>
+            }
         </>
     )
 }

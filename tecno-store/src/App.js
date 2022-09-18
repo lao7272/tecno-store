@@ -22,8 +22,6 @@ function App() {
             <Route path='/cart' element={<CartContainer/>}/>
             <Route path='/contacto' element={<ContactPage/>}/>
             <Route path='*' element={<ItemListContainer/> }/>
-
-            <Route/>
           </Routes>        
         </div>
       </BrowserRouter>
