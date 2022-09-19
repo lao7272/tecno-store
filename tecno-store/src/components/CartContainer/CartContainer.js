@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
+import { FormCartContainer } from '../FormCartContainer/FormCartContainer';
 
 
 export const CartContainer = () => {
@@ -13,7 +14,6 @@ export const CartContainer = () => {
         } else {
             setIfEmptyCart(true);
         }
-        console.log(total(productCartList))
     },[productCartList]);
     
     
@@ -60,8 +60,10 @@ export const CartContainer = () => {
                 </button>
             </div>
             <h3>Total: {total(productCartList)}</h3>
+            <FormCartContainer arr={productCartList} total={total(productCartList)}/>
             </> 
             }
+
         </div>
 
     )

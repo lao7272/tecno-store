@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ItemList } from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { dataBase } from "../../utils/firebase";
 export const ItemListContainer = () => {
 
@@ -12,16 +12,19 @@ export const ItemListContainer = () => {
     
     useEffect(() => {
         const getData = async() => {
-            const query = collection(dataBase, "items"); 
-            const response = await getDocs(query);
+            const queryRef = collection(dataBase, "items"); 
+            const response = await getDocs(queryRef);
             const docs = response.docs;
-            const data = docs.map(doc=> {return {...doc.data(), id:doc.id}})
+            const data = docs.map(doc=> {return {...doc.data(), id:doc.id}});
 
             if(!tipoProducto ){
                 setProducts(data);
             } else {
-                const newList = data.filter(itm => itm.category === tipoProducto);
-                setProducts(newList);
+                const newQ = query(collection(dataBase, "items"), where("category", "==", tipoProducto));
+                const newRes = await getDocs(newQ);
+                const newDocs = newRes.docs;
+                const newData = newDocs.map(doc=> {return {...doc.data(), id:doc.id}});
+                setProducts(newData);
             }
             
             setLoading(false);

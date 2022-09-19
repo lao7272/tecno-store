@@ -57,7 +57,7 @@ export const ItemCount = ({initial, stock, onAdd }) => {
             </>
             :
             <LinkBoostrap to="/cart">
-                <button className="btn btn-success m-1">Terminar Compra</button>
+                <button className="btn btn-info m-1">Terminar Compra</button>
             </LinkBoostrap>
             }
         </>
