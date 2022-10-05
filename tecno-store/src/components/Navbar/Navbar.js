@@ -9,7 +9,7 @@ export function Navbar (){
                     <div className="collapse navbar-collapse" id="navbarColor01">
                     <ul className="navbar-nav me-auto">
                         <li className="nav-item">
-                        <NavLink to="/" className={({isActive}) => isActive ? "activeClass nav-link active" : "inactiveClass nav-link active"}>Inicio</NavLink>
+                            <NavLink to="/" className={({isActive}) => isActive ? "activeClass nav-link active" : "inactiveClass nav-link active"}>Inicio</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink to="/productos/celulares" className={({isActive}) => isActive ? "activeClass nav-link active" : "inactiveClass nav-link active"}>Celulares</NavLink>

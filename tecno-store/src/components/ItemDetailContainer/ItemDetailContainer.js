@@ -3,6 +3,7 @@ import { ItemDetail } from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { dataBase } from "../../utils/firebase";
+import loadingGif from "../../assets/gif/loading.gif";
 
 
 export const ItemDetailContainer = () => {
@@ -26,7 +27,7 @@ export const ItemDetailContainer = () => {
 
     return(
         <>
-        {loading ? <h3>Cargando</h3>
+        {loading ? <img src={loadingGif} alt="Cif Caragndo" className="loadingGif"/> 
         :
         <div className="itemDetailContainer">
             <h4>Item Detail</h4>

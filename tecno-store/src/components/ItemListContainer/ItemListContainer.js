@@ -3,6 +3,7 @@ import { ItemList } from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { dataBase } from "../../utils/firebase";
+import loadingGif from "../../assets/gif/loading.gif";
 export const ItemListContainer = () => {
 
     const {tipoProducto} = useParams();
@@ -38,7 +39,7 @@ export const ItemListContainer = () => {
     return(
         <main>
             {
-            loading ? <h3>Cargando</h3> 
+            loading ? <img src={loadingGif} alt="Cif Caragndo" className="loadingGif"/> 
             :
             <ItemList items={products}/>
             }

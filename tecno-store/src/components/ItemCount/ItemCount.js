@@ -22,13 +22,11 @@ export const ItemCount = ({initial, stock, onAdd }) => {
     }
     const removeFromCart = () => {
         if(count !== 0){
-
             setCount(count - 1);
             setReserve(reseve + 1);
             initial = count;
             stock = reseve;
         }
-        
     }
     const quantProd = () => {
         onAdd(count, reseve);
@@ -51,7 +49,7 @@ export const ItemCount = ({initial, stock, onAdd }) => {
             </div>
             <div>
                 
-                <button onClick={quantProd} className="btn btn-success m-1">Agregar al carrito</button>
+                <button disabled={count === 0} onClick={quantProd} className="btn btn-success m-1">Agregar al carrito</button>
                 
             </div>
             </>

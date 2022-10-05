@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-import { arrProducts } from "../components/arrProducts/arrProducts";
 
 export const CartContext = createContext();
 
@@ -7,9 +6,7 @@ export const CartProvider = ({children}) => {
     
     const [productCartList, setProductCartList] = useState([]);
     const addProduct = (product, quantProd, id) => {
-
         const newProduct = productCartList.find(p => p.id === product.id);
-
         if(newProduct){
             newProduct.quant = newProduct.quant + product.quant;
         } else {

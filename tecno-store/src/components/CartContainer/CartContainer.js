@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 import { FormCartContainer } from '../FormCartContainer/FormCartContainer';
+import emptyCartIcon from '../../assets/icons/empty-cart.png';
 
 
 export const CartContainer = () => {
-    const {productCartList, removeProduct, clear, total, } = useContext(CartContext);
+    const {productCartList, removeProduct, clear, total } = useContext(CartContext);
     const [ifEmptyCart, setIfEmptyCart] = useState(true);
 
     
@@ -16,17 +18,18 @@ export const CartContainer = () => {
         }
     },[productCartList]);
     
-    
     return (
         
         <div>
-            <h1>Carrito</h1>
+            <h1 className='cartTitle'>Carrito</h1>
             {
                 
                     ifEmptyCart ? 
-                    <div>
-                        <h3>Tu carrito esta vacio</h3>
-                        <h5>Nuestros productos: </h5>
+                    <div className='emptyCart'>
+                        <img src={emptyCartIcon} alt='Carro Vacio' className='emptyCartIcon'/>
+                        <h2>Tu carro esta vacio</h2>
+                        
+                        <Link to='/'><button className='btn btn-dark'>Ver productos</button> </Link>
                         
                     </div>
                     :
@@ -35,35 +38,35 @@ export const CartContainer = () => {
                 {
                     productCartList.map(item => (
                 
-                        <div key={item.id} className="card border-primary mb-3 m-3 cardItem" >
-                            <div className="card-header"><h3>{item.title}</h3></div>
-                            <div className="card-body ">
+                        <div key={item.id} className=" mb-3 cartItem" >
+                            <div className="cartCardHeader"><h4>{item.title}</h4></div>
+                            <div className="cartCardBody">
+                                <div className='cartCardInfo'>
+
+                                    <h5>Precio: ${item.price}</h5>
+                                    <h5>Cantidad: {item.quant}</h5>
+                                </div>
                                 <img src={item.pictureUrl} alt={item.title}></img>
                             </div>
-
-                            <div className="card-body row">
-                                <h5>Precio: ${item.price}</h5>
-                                <h5>Cantidad: {item.quant}</h5>
-                            </div>
                             <div className='deleteProduct'>
-                            <button onClick={()=>removeProduct(item.id)} className='btn btn-danger w-50'>Quitar del carrito</button>
+                                <button onClick={()=>removeProduct(item.id)} className='btn btn-danger '>Quitar del carrito</button>
                             </div>
                         </div>
                         
-            
                     
                 ))}
             </div>
+            <h3>Total: {total(productCartList)}</h3>
+            <FormCartContainer arr={productCartList} total={total(productCartList) } />
             <div>
                 <button onClick={clear} className='btn btn-danger'>
                     Quitar todos los productos del carrito
                 </button>
             </div>
-            <h3>Total: {total(productCartList)}</h3>
-            <FormCartContainer arr={productCartList} total={total(productCartList)}/>
             </> 
             }
-
+            
+            
         </div>
 
     )

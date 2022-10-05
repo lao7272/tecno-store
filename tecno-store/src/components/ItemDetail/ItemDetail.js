@@ -13,7 +13,7 @@ export const ItemDetail = ({item}) => {
 
     return(
         <>  
-                <div key={item.id} className="card border-primary mb-3 cardItem" >
+                <div key={item.id} className="card border-primary mb-3 cardDetailItem" >
                     <div className="card-header"><h3>{item.title}</h3></div>
                     <div className="card-body ">
                         <img src={item.pictureUrl} alt={item.title}></img>

@@ -1,10 +1,12 @@
+/* General */
 .App {
   text-align: center;
 }
-.cartWidget{
+main h1{
   margin: 10px;
-  color: #fff;
-  cursor: pointer;
+}
+.loadingGif{
+  width: 300px;
 }
 .activeClass{
   text-decoration: underline;
@@ -12,9 +14,26 @@
 .inactiveClass{
   text-decoration: none;
 }
-main h1{
+/* CARTWIDGET */
+.cartWidget{
+  display: flex;
   margin: 10px;
+  color: #fff;
+  cursor: pointer;
 }
+.counterCart{
+  display: block;
+  font-size: 12px;
+  padding: 4px 9px;
+  border-radius: 100%;
+  color: #000;
+  background-color: #fff;
+  text-decoration: none;
+}
+.counterCartDisabled{
+  display: none;
+}
+/* ITEM LIST */
 .itemListContainer{
   width: 100%;
   display: flex;
@@ -23,13 +42,16 @@ main h1{
   
 }
 .cardItem{
-  max-width: 20rem;
+  height: 33rem;
+  width: 20rem;
   border-radius: 4px;
   padding-bottom: 1rem;
+
 }
 .cardItem img{
-  width: 70%;
+  height: 150px;
 }
+/* ITEM DETAIL */
 .itemDetailContainer{
   width: 100%;
   display: flex;
@@ -37,15 +59,92 @@ main h1{
   justify-content: center;
   align-items: center;
 }
-.deleteProduct{
-  width: 100%;
+.cardDetailItem{
+  width: 20rem;
 }
-.deleteProduct button{
-  margin: 0 auto;
+.cardDetailItem img {
+  height: 150px;
+}
+/* CART */
+.cartTitle{
+  margin: 20px;
+  text-decoration: underline;
 }
 .cartProducts{
   width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+.cartItem{
+  height: 100px;
+  width: 60%;
+  display: flex; 
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid #000;
+
+}
+.cartCardHeader{
+  height: 100%;
+  border-right: 1px solid #000;
+  display: flex;
+  align-items: center;
+}
+.cartCardHeader h4{
+  margin: 20px;
+}
+
+.cartCardBody{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px;
+
+}
+.cartCardBody img{
+  height: 100%;
+
+}
+.cartCardInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.deleteProduct{
+  margin: 0;
+  height: 100%;
+  width: 20%;
+  justify-self: flex-end;
+}
+.deleteProduct button{
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+.emptyCart{
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.emptyCart h2, h3, img{
+  margin: 15px;
+}
+.emptyCartIcon{
+  width: 100px;
+}
+.formCart{
+  width: 60%;
+  margin: 0 auto;
+}
+.formCart input{
+  text-align: center;
+  background: none;
+  border-bottom: 1.2px solid #000;
+  outline: none;
 }
